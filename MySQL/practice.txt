@@ -690,3 +690,24 @@ mysql> select salary from customers where salary is not null;
 +--------+
 4 rows in set (0.00 sec)
 
+mysql> select * from customers;
++------+---------+--------+------+
+| id   | name    | salary | code |
++------+---------+--------+------+
+|    1 | Shiny   |  50000 | A    |
+|    2 | Jasmine |  40000 | B    |
+|    3 | NULL    |   NULL | C    |
+|    4 | Jasper  |  25000 | D    |
+|    5 | Amy     |  30000 | E    |
++------+---------+--------+------+
+5 rows in set (0.03 sec)
+
+mysql> select * from customers where salary > (select avg(salary) from customers);
++------+---------+--------+------+
+| id   | name    | salary | code |
++------+---------+--------+------+
+|    1 | Shiny   |  50000 | A    |
+|    2 | Jasmine |  40000 | B    |
++------+---------+--------+------+
+2 rows in set (0.00 sec)
+
